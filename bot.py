@@ -1264,9 +1264,9 @@ async def delete_draft_y_down_media(client: Client, message: Message):
 			if "tramites.mined.gob.cu" in urls[0]:
 				connector = aiohttp.TCPConnector()
 				async with aiohttp.ClientSession(connector=connector) as session:
-					host = "https://tramites.mined.gob.cu/login.php"
+					host = "https://tramites.mined.gob.cu/tickets.php"
 					payload = payload = {}
-					payload["source"] = "/index.php/medisur/user/profile"
+					payload["source"] = "/tickets.php/user/profile"
 					payload["username"] = "jg4706938@gmail.com"
 					payload["password"] = "Lianet123*#"
 					async with session.post(host+"login/signIn", data=payload,ssl=False) as e:
@@ -2318,11 +2318,11 @@ async def uploadfile(file,usid,msg,username):
 				await msg.edit("𝑯𝒂 𝒇𝒂𝒍𝒍𝒂𝒅𝒐 𝒍𝒂 𝒔𝒖𝒃𝒊𝒅𝒂")
 				id_de_ms[username]["proc"] = ""
 				return
-async def medisur_api(file,usid,msg,username):
+async def mined_api(file,usid,msg,username):
 	try:
 		zipssize=Configs[username]['z']*1024*1024
 		filename = file.split("/")[-1]
-		host = "https://medisur.sld.cu/index.php/medisur/"
+		host = "https://tramites.mined.gob.cu/tickets.php"
 		filesize = Path(file).stat().st_size
 		print(21)
 		proxy = None #Configs[username]["gp"]
@@ -2334,9 +2334,9 @@ async def medisur_api(file,usid,msg,username):
 			connector = aiohttp_socks.ProxyConnector.from_url(proxy)
 		async with aiohttp.ClientSession(connector=connector) as session:
 			payload = payload = {}
-			payload["source"] = "/index.php/medisur/user/profile"
-			payload["username"] = "lazaro12"
-			payload["password"] = "Lazaro12."
+			payload["source"] = "/tickets.php/user/profile"
+			payload["username"] = "jg4706938@gmail.com"
+			payload["password"] = "Lianet123*#"
 			async with session.post(host+"login/signIn", data=payload,ssl=False) as e:
 				print(222)
 			#upload
@@ -3028,10 +3028,10 @@ async def callback_data(bot,callback):
 	if data[0]=="clear":
 		id = int(data[1])+1
 	elif data[0]=="rv":
-		if data[1]=="medisur":
-			Configs[username]['m'] = 'medisur'
-			Configs[username]['z'] = 19
-			await call_back.edit_text("✅ Medisur API Client Upload Activate ✅")
+		if data[1]=="mined":
+			Configs[username]['m'] = 'mined'
+			Configs[username]['z'] = 40
+			await call_back.edit_text("✅ Mined API Client Upload Activate ✅")
 		elif data[1]=="upspe":
 			Configs[username]['m'] = 'upspe'
 			Configs[username]['z'] = 150

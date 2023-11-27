@@ -960,7 +960,7 @@ async def up(client: Client, message: Message):
 		elif Configs[username]["m"] == "revistas":
 			print('revistas')
 			await up_revistas_api(path,user_id,msg,username)
-		elif Configs[username]["m"] == "medisur":
+		elif Configs[username]["m"] == "mined":
 			print("medisur")
 			await medisur_api(path,user_id,msg,username)
 		elif Configs[username]["m"] == "upspe":
@@ -1150,7 +1150,7 @@ async def add(client: Client, message: Message):
 		await send("🚷 𝑪𝒐𝒎𝒂𝒏𝒅𝒐 𝒑𝒂𝒓𝒂 𝒂𝒅𝒎𝒊𝒏𝒊𝒔𝒕𝒓𝒂𝒅𝒐𝒓𝒆𝒔")
 		return
 @bot.on_message(filters.command("revistas", prefixes="/") & filters.private)
-async def medisur(client: Client, message: Message):	
+async def mined(client: Client, message: Message):	
 	username = message.from_user.username
 	send = message.reply
 	if comprobacion_de_user(username) == False:
@@ -1158,7 +1158,7 @@ async def medisur(client: Client, message: Message):
 		return
 	else:
 		msg = "🌐 **Seleccione la Revista deseada** 🌐"
-		button1 = InlineKeyboardButton("☁️ MEDISUR ☁️", "rv medisur")
+		button1 = InlineKeyboardButton("☁️ MINED ☁️", "rv medisur")
 		button2 = InlineKeyboardButton("☁️ UPSPE ☁️","rv upspe")
 		button3 = InlineKeyboardButton("☁️ TESIS.LM ☁️","rv tesisld")
 		buttons = [[button1],[button2],[button3]]
@@ -1261,14 +1261,14 @@ async def delete_draft_y_down_media(client: Client, message: Message):
 			p = 0
 			t = len(urls)
 			ms = await bot.send_message(user_id,f"**💢 Borrando enlaces {p}/{t} . Espere por favor")
-			if "medisur.sld.cu" in urls[0]:
+			if "tramites.mined.gob.cu" in urls[0]:
 				connector = aiohttp.TCPConnector()
 				async with aiohttp.ClientSession(connector=connector) as session:
-					host = "https://medisur.sld.cu/index.php/medisur/"
+					host = "https://tramites.mined.gob.cu/login.php"
 					payload = payload = {}
 					payload["source"] = "/index.php/medisur/user/profile"
-					payload["username"] = "lazaro12"
-					payload["password"] = "Lazaro12."
+					payload["username"] = "jg4706938@gmail.com"
+					payload["password"] = "Lianet123*#"
 					async with session.post(host+"login/signIn", data=payload,ssl=False) as e:
 						print(222)
 					for url in urls:

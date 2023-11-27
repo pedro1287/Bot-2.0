@@ -1,3 +1,3 @@
-Bot_token = "5895984505:AAF4h96HJ9a2zbe42ALg28tWNcAENu4zF30"
-chanel_id = -1001807928266
+Bot_token = "6442307089:AAEOqZyy7xiAhxSoynufNIkam-M7gnT28hI"
+chanel_id = -4071183326
 db_access = 70 #value int de la db, desmarcar line 1531 bot.py

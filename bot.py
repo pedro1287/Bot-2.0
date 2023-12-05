@@ -83,7 +83,7 @@ async def start(client: Client, message: Message):
 	try:await get_messages()
 	except:await send_config()
 	if comprobacion_de_user(username) == False:
-		await send("⛔ 𝑵𝒐 𝒕𝒊𝒆𝒏𝒆 𝒂𝒄𝒄𝒆𝒔𝒐 @Michel1203 ⛔")
+		await send("⛔ 𝑵𝒐 𝒕𝒊𝒆𝒏𝒆 𝒂𝒄𝒄𝒆𝒔𝒐 @JAGB2021 ⛔")
 		return
 	else:pass
 	zipps = str(Configs[username]["z"])

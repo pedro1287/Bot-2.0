@@ -540,7 +540,9 @@ async def delete_links(client: Client, message: Message):
 			async with session.get(link) as response:
 				if loads(await response.text())["success"]:
 					deleted+=1
-		if total_urls == deleted:
+		if total_urls == deleted:@bot.on_message(filters.command("download", prefixes="/")& filters.private)
+async def download_archive(client: Clienbot.on_message(filters.command("downloadt, message: Message):
+	global procesos
 			Urls[username] = []
 			await send("✅ 𝑫𝒐𝒏𝒆 ✅")
 
@@ -567,12 +569,10 @@ async def download_archive(client: Client, message: Message):
 		return
 	else:pass
 	procesos += 1
-	msg = await send("🧿𝑹𝒆𝒄𝒐𝒑𝒊𝒍𝒂𝒏𝒅𝒐 𝒊𝒏𝒇𝒐𝒓𝒎𝒂𝒄𝒊ó𝒏🧿")
+	msg = await send("𝑹𝒆𝒄𝒐𝒑𝒊𝒍𝒂𝒏𝒅𝒐 𝒊𝒏𝒇𝒐𝒓𝒎𝒂𝒄𝒊ó𝒏")
 	count = 0
 	for i in downlist[username]:
 		filesize = int(str(i).split('"file_size":')[1].split(",")[0])
-		if not username in total_up:
-			total_up[username] = {'P':0,'S':0}
 		total_up[username]['P']+=filesize
 		try:
 			filename = str(i).split('"file_name": ')[1].split(",")[0].replace('"',"")	
@@ -580,11 +580,11 @@ async def download_archive(client: Client, message: Message):
 			filename = str(randint(11111,999999))+".mp4"
 		await bot.send_message(Channel_Id,f'**@{username} Envio un #archivo:**\n**Filename:** {filename}\n**Size:** {sizeof_fmt(filesize)}')	
 		start = time()		
-		await msg.edit(f"⬇️𝑷𝒓𝒆𝒑𝒂𝒓𝒂𝒏𝒅𝒐 𝑫𝒆𝒔𝒄𝒂𝒓𝒈𝒂⬇️\n\n`{filename}`")
+		await msg.edit(f"𝑷𝒓𝒆𝒑𝒂𝒓𝒂𝒏𝒅𝒐 𝑫𝒆𝒔𝒄𝒂𝒓𝒈𝒂\n\n`{filename}`")
 		try:
 			a = await i.download(file_name=str(root[username]["actual_root"])+"/"+filename,progress=downloadmessage_progres,progress_args=(filename,start,msg))
 			if Path(str(root[username]["actual_root"])+"/"+ filename).stat().st_size == filesize:
-				await msg.edit("🟢𝑫𝒆𝒔𝒄𝒂𝒓𝒈𝒂 𝒆𝒙𝒊𝒕𝒐𝒔𝒂🟢")
+				await msg.edit("𝑫𝒆𝒔𝒄𝒂𝒓𝒈𝒂 𝒆𝒙𝒊𝒕𝒐𝒔𝒂")
 				count +=1
 		except Exception as ex:
 			if procesos > 0:
@@ -598,7 +598,7 @@ async def download_archive(client: Client, message: Message):
 		if procesos > 0:
 			procesos -= 1
 		else:pass
-		await msg.edit("💠𝑻𝒐𝒅𝒐𝒔 𝒍𝒐𝒔 𝒂𝒓𝒄𝒉𝒊𝒗𝒐𝒔 𝒉𝒂𝒏 𝒔𝒊𝒅𝒐 𝒅𝒆𝒔𝒄𝒂𝒓𝒈𝒂𝒅𝒐𝒔💠")
+		await msg.edit("𝑻𝒐𝒅𝒐𝒔 𝒍𝒐𝒔 𝒂𝒓𝒄𝒉𝒊𝒗𝒐𝒔 𝒉𝒂𝒏 𝒔𝒊𝒅𝒐 𝒅𝒆𝒔𝒄𝒂𝒓𝒈𝒂𝒅𝒐𝒔")
 		downlist[username] = []
 		count = 0
 		msg = files_formatter(str(root[username]["actual_root"]),username)
@@ -612,8 +612,8 @@ async def download_archive(client: Client, message: Message):
 		msg = files_formatter(str(root[username]["actual_root"]),username)
 		await limite_msg(msg[0],username)
 		downlist[username] = []
-		return		
-
+		return	
+		
 #root
 @bot.on_message(filters.command("rm", prefixes="/")& filters.private)
 async def rm(client: Client, message: Message):

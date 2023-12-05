@@ -1528,7 +1528,7 @@ def sizeof_fmt(num, suffix='B'):
 
 def get_webservice_token(host='',username='',password='',proxy=None): 
 	try:
-		pproxy = None 
+	
 		webserviceurl = f'{host}login/token.php?service=moodle_mobile_app&username={username}&password={password}' 
 		resp = requests.get(webserviceurl, proxies=pproxy,timeout=8) 
 		data = json.loads(resp.text) 

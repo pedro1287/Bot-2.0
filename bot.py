@@ -63,7 +63,7 @@ boss = ['raydel0307','JAGB2021']#usuarios supremos
 Configs = {"uclv":'',"gtm":"","uvs":"","ltu":"", 
 			"ucuser": "", "ucpass":"","uclv_p":"", "gp":None, "s":"On", 
 			'JAGB2021': {'z': 99,"m":"e","a":"c","t":"y","gp":False},
-			'raydel0307': {'z': 99,"m":"e","a":"c","t":"y","gp":False}}
+			'JAGB2021': {'z': 99,"m":"e","a":"c","t":"y","gp":False}}
 
 Urls = {} #urls subidos a educa
 Urls_draft = {} #urls para borrar de draft
